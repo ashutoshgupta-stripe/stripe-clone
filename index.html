@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cactus Practice - Revenue Recognition</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+            <div class="logo">
+                <div class="logo-icon">🦙</div>
+                <span>Cactus Practice</span>
+            </div>
+        </div>
+        <div class="header-center">
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search">
+            </div>
+        </div>
+        <div class="header-right">
+            <div class="header-icons">
+                <i class="fas fa-bell"></i>
+                <i class="fas fa-question-circle"></i>
+                <i class="fas fa-cog"></i>
+                <div class="user-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="#" class="nav-link"><i class="fas fa-home"></i><span>Home</span></a></li>
+                    <li><a href="#" class="nav-link"><i class="fas fa-balance-scale"></i><span>Balances</span></a></li>
+                    <li><a href="#" class="nav-link"><i class="fas fa-exchange-alt"></i><span>Transactions</span></a></li>
+                    <li><a href="#" class="nav-link"><i class="fas fa-address-book"></i><span>Directory</span></a></li>
+                    <li><a href="#" class="nav-link"><i class="fas fa-box"></i><span>Product catalog</span></a></li>
+                </ul>
+                
+                <div class="sidebar-section">
+                    <h4>Shortcuts</h4>
+                    <ul>
+                        <li><a href="#" class="nav-link"><i class="fas fa-shield-alt"></i><span>Fraud tools</span></a></li>
+                        <li><a href="#" class="nav-link"><i class="fas fa-terminal"></i><span>Terminal</span></a></li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-section">
+                    <h4>Products</h4>
+                    <ul>
+                        <li><a href="#" class="nav-link expandable"><i class="fas fa-plug"></i><span>Connect</span><i class="fas fa-chevron-down"></i></a></li>
+                        <li><a href="#" class="nav-link expandable"><i class="fas fa-credit-card"></i><span>Payments</span><i class="fas fa-chevron-down"></i></a></li>
+                        <li><a href="#" class="nav-link expandable"><i class="fas fa-file-invoice"></i><span>Billing</span><i class="fas fa-chevron-down"></i></a></li>
+                        <li class="nav-item-with-submenu">
+                            <a href="#" class="nav-link expandable expanded"><i class="fas fa-chart-bar"></i><span>Reporting</span><i class="fas fa-chevron-up"></i></a>
+                            <ul class="submenu">
+                                <li><a href="#" class="nav-link submenu-link"><span>Overview</span></a></li>
+                                <li><a href="#" class="nav-link submenu-link"><span>Reports</span></a></li>
+                                <li><a href="#" class="nav-link submenu-link"><span>Custom metrics</span></a></li>
+                                <li><a href="#" class="nav-link submenu-link"><span>Sigma</span></a></li>
+                                <li><a href="#" class="nav-link submenu-link active"><span>Revenue Recognition</span></a></li>
+                                <li><a href="#" class="nav-link submenu-link"><span>Data management</span></a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#" class="nav-link expandable"><i class="fas fa-ellipsis-h"></i><span>More</span><i class="fas fa-chevron-down"></i></a></li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-section">
+                    <h4>Developers</h4>
+                    <ul>
+                        <li><a href="#" class="nav-link"><i class="fas fa-code"></i><span>API</span></a></li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="content-header">
+                <h1>Revenue Recognition</h1>
+                <button class="settings-btn">
+                    <i class="fas fa-cog"></i>
+                    Settings
+                </button>
+            </div>
+
+            <!-- Tab Navigation -->
+            <div class="tab-navigation">
+                <button class="tab-btn">Overview</button>
+                <button class="tab-btn">Revenue waterfall</button>
+                <button class="tab-btn active">Summary journal entries</button>
+                <button class="tab-btn">Statements</button>
+                <button class="tab-btn">Data import</button>
+                <button class="tab-btn">Rules</button>
+                <button class="tab-btn">Chart of accounts</button>
+                <button class="tab-btn dropdown">
+                    More
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+            </div>
+
+            <!-- Content Area -->
+            <div class="content-area">
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Accounting period</th>
+                                <th>Status</th>
+                                <th>Total entries</th>
+                                <th>Grouped by</th>
+                                <th>Last updated</th>
+                            </tr>
+                        </thead>
+                        <tbody id="data-table-body">
+                            <!-- Data will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
