@@ -604,6 +604,42 @@ body {
     text-align: right;
 }
 
+/* Coming Soon Styles */
+.coming-soon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+    padding: 60px 20px;
+}
+
+.coming-soon-content {
+    text-align: center;
+    max-width: 500px;
+}
+
+.coming-soon-icon {
+    font-size: 64px;
+    color: #533AFD;
+    margin-bottom: 24px;
+}
+
+.coming-soon-content h2 {
+    font-size: 32px;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 16px;
+}
+
+.coming-soon-content p {
+    font-size: 16px;
+    color: #6b7280;
+    line-height: 1.6;
+    margin-bottom: 32px;
+}
+
+
+
 /* Responsive Design */
 @media (max-width: 1024px) {
     .sidebar {

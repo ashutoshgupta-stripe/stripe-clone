@@ -176,7 +176,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Populate the data table
 function populateTable() {
-    tableBody.innerHTML = '';
+    const currentTableBody = document.getElementById('data-table-body');
+    
+    if (!currentTableBody) {
+        console.error('Table body not found');
+        return;
+    }
+    
+    currentTableBody.innerHTML = '';
     
     accountingPeriods.forEach((period, index) => {
         const row = document.createElement('tr');
@@ -194,22 +201,32 @@ function populateTable() {
             showPeriodDetails(period);
         });
         
-        tableBody.appendChild(row);
+        currentTableBody.appendChild(row);
     });
 }
 
 // Initialize tab navigation
 function initializeTabNavigation() {
-    tabButtons.forEach(button => {
+    const currentTabButtons = document.querySelectorAll('.tab-btn');
+    
+    currentTabButtons.forEach(button => {
         button.addEventListener('click', function() {
             // Remove active class from all tabs
-            tabButtons.forEach(btn => btn.classList.remove('active'));
+            currentTabButtons.forEach(btn => btn.classList.remove('active'));
             
             // Add active class to clicked tab
             this.classList.add('active');
             
-            // Here you could add logic to show different content based on the selected tab
-            console.log('Selected tab:', this.textContent.trim());
+            // Handle different tab content
+            const tabName = this.textContent.trim();
+            
+            if (tabName === 'Summary journal entries') {
+                showMainView();
+            } else {
+                showComingSoon(tabName); // Show coming soon for all other tabs
+            }
+            
+            console.log('Selected tab:', tabName);
         });
     });
 }
@@ -315,11 +332,20 @@ function initializeResponsiveSidebar() {
 function initializeSearch() {
     const searchInput = document.querySelector('.search-bar input');
     
+    if (!searchInput) {
+        return;
+    }
+    
     searchInput.addEventListener('input', function() {
         const searchTerm = this.value.toLowerCase();
+        const currentTableBody = document.getElementById('data-table-body');
+        
+        if (!currentTableBody) {
+            return;
+        }
         
         // Filter table rows based on search term
-        const rows = tableBody.querySelectorAll('tr');
+        const rows = currentTableBody.querySelectorAll('tr');
         rows.forEach(row => {
             const text = row.textContent.toLowerCase();
             if (text.includes(searchTerm)) {
@@ -352,7 +378,13 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // Add loading state simulation
 function showLoadingState() {
-    tableBody.innerHTML = `
+    const currentTableBody = document.getElementById('data-table-body');
+    
+    if (!currentTableBody) {
+        return;
+    }
+    
+    currentTableBody.innerHTML = `
         <tr>
             <td colspan="5" style="text-align: center; padding: 40px;">
                 <i class="fas fa-spinner fa-spin" style="font-size: 24px; color: #6b7280;"></i>
@@ -504,6 +536,52 @@ function showPeriodDetails(period) {
     mainContent.innerHTML = detailsHTML;
 }
 
+// Show coming soon function
+function showComingSoon(activeTab = 'Overview') {
+    const mainContent = document.querySelector('.main-content');
+    
+    const comingSoonHTML = `
+        <div class="content-header">
+            <h1>Revenue Recognition</h1>
+            <button class="settings-btn">
+                <i class="fas fa-cog"></i>
+                Settings
+            </button>
+        </div>
+
+        <!-- Tab Navigation -->
+        <div class="tab-navigation">
+            <button class="tab-btn ${activeTab === 'Overview' ? 'active' : ''}">Overview</button>
+            <button class="tab-btn ${activeTab === 'Revenue waterfall' ? 'active' : ''}">Revenue waterfall</button>
+            <button class="tab-btn ${activeTab === 'Summary journal entries' ? 'active' : ''}">Summary journal entries</button>
+            <button class="tab-btn ${activeTab === 'Statements' ? 'active' : ''}">Statements</button>
+            <button class="tab-btn ${activeTab === 'Data import' ? 'active' : ''}">Data import</button>
+            <button class="tab-btn ${activeTab === 'Rules' ? 'active' : ''}">Rules</button>
+            <button class="tab-btn ${activeTab === 'Chart of accounts' ? 'active' : ''}">Chart of accounts</button>
+            <button class="tab-btn dropdown ${activeTab === 'More' ? 'active' : ''}">
+                More
+                <i class="fas fa-chevron-down"></i>
+            </button>
+        </div>
+
+        <!-- Coming Soon Content -->
+        <div class="content-area">
+            <div class="coming-soon-container">
+                <div class="coming-soon-content">
+                    <i class="fas fa-rocket coming-soon-icon"></i>
+                    <h2>Coming Soon</h2>
+                    <p>This feature is currently under development and will be available soon.</p>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    mainContent.innerHTML = comingSoonHTML;
+    
+    // Re-initialize tab navigation for the new content
+    initializeTabNavigation();
+}
+
 // Show main view function
 function showMainView() {
     const mainContent = document.querySelector('.main-content');
@@ -558,6 +636,7 @@ function showMainView() {
     // Re-initialize the main view
     populateTable();
     initializeTabNavigation();
+    initializeSearch();
 }
 
 // Export functions for potential external use
@@ -566,5 +645,6 @@ window.dashboardFunctions = {
     populateTable,
     showLoadingState,
     showPeriodDetails,
-    showMainView
+    showMainView,
+    showComingSoon
 }; 
