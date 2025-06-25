@@ -504,10 +504,22 @@ function showPeriodDetails(period) {
                     <span class="entries-count">Showing ${journalEntries.length} entries</span>
                     <span class="update-time">Updated today, at 11:00 PM</span>
                 </div>
-                <button class="download-btn">
-                    <i class="fas fa-download"></i>
-                    Download
-                </button>
+                <div class="download-container">
+                    <button class="download-btn" onclick="toggleDownloadPopover()">
+                        <i class="fas fa-download"></i>
+                        Download
+                    </button>
+                    <div class="download-popover" id="download-popover">
+                        <div class="download-option" onclick="downloadSummary()">
+                            <div class="download-option-title">Summary</div>
+                            <div class="download-option-desc">Download summarized journal entries.</div>
+                        </div>
+                        <div class="download-option" onclick="downloadItemized()">
+                            <div class="download-option-title">Itemized</div>
+                            <div class="download-option-desc">Download individual journal entries.</div>
+                        </div>
+                    </div>
+                </div>
             </div>
             
             <!-- Detailed Table -->
@@ -528,6 +540,36 @@ function showPeriodDetails(period) {
                              ${generateTableRows()}
                          </tbody>
                      </table>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Download Modal -->
+        <div class="modal-backdrop" id="download-modal" onclick="if(event.target === this) hideDownloadModal()">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Download summary journal entries</h3>
+                    <button class="modal-close" onclick="hideDownloadModal()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-info">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Period July 1, 2025 - July 31, 2025 is open. New transactions will change this report. It was last updated today, at 11:00 PM UTC.</span>
+                    </div>
+                    <div class="modal-field">
+                        <label>Currency</label>
+                        <select class="modal-dropdown">
+                            <option value="USD">USD</option>
+                            <option value="EUR">EUR</option>
+                            <option value="GBP">GBP</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="modal-btn cancel" onclick="hideDownloadModal()">Cancel</button>
+                    <button class="modal-btn primary" onclick="confirmDownload()">Download</button>
                 </div>
             </div>
         </div>
@@ -639,6 +681,64 @@ function showMainView() {
     initializeSearch();
 }
 
+// Download popover functions
+function toggleDownloadPopover() {
+    const popover = document.getElementById('download-popover');
+    if (popover) {
+        popover.classList.toggle('show');
+    }
+}
+
+function downloadSummary() {
+    console.log('Opening download summary modal...');
+    hideDownloadPopover();
+    showDownloadModal();
+}
+
+function downloadItemized() {
+    console.log('Downloading individual journal entries...');
+    // Add actual download logic here
+    alert('Downloading individual journal entries...');
+    hideDownloadPopover();
+}
+
+function hideDownloadPopover() {
+    const popover = document.getElementById('download-popover');
+    if (popover) {
+        popover.classList.remove('show');
+    }
+}
+
+function showDownloadModal() {
+    const modal = document.getElementById('download-modal');
+    if (modal) {
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    }
+}
+
+function hideDownloadModal() {
+    const modal = document.getElementById('download-modal');
+    if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto'; // Restore scrolling
+    }
+}
+
+function confirmDownload() {
+    console.log('Starting download...');
+    alert('Download started!');
+    hideDownloadModal();
+}
+
+// Close popover when clicking outside
+document.addEventListener('click', function(event) {
+    const downloadContainer = event.target.closest('.download-container');
+    if (!downloadContainer) {
+        hideDownloadPopover();
+    }
+});
+
 // Export functions for potential external use
 window.dashboardFunctions = {
     refreshData,
@@ -646,5 +746,11 @@ window.dashboardFunctions = {
     showLoadingState,
     showPeriodDetails,
     showMainView,
-    showComingSoon
+    showComingSoon,
+    toggleDownloadPopover,
+    downloadSummary,
+    downloadItemized,
+    showDownloadModal,
+    hideDownloadModal,
+    confirmDownload
 }; 

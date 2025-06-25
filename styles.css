@@ -511,6 +511,10 @@ body {
     font-size: 14px;
 }
 
+.download-container {
+    position: relative;
+}
+
 .download-btn {
     display: flex;
     align-items: center;
@@ -528,6 +532,56 @@ body {
 .download-btn:hover {
     background: #f9fafb;
     border-color: #9ca3af;
+}
+
+.download-popover {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    min-width: 280px;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: all 0.2s ease;
+}
+
+.download-popover.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.download-option {
+    padding: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.download-option:last-child {
+    border-bottom: none;
+}
+
+.download-option:hover {
+    background-color: #f9fafb;
+}
+
+.download-option-title {
+    font-weight: 600;
+    font-size: 14px;
+    color: #111827;
+    margin-bottom: 4px;
+}
+
+.download-option-desc {
+    font-size: 13px;
+    color: #6b7280;
+    line-height: 1.4;
 }
 
 .detailed-table {
@@ -602,6 +656,150 @@ body {
     font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
     font-weight: 500;
     text-align: right;
+}
+
+/* Modal Styles */
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(107, 114, 128, 0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+
+.modal-content {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    max-width: 500px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 24px 0 24px;
+    border-bottom: 1px solid #f3f4f6;
+    margin-bottom: 20px;
+}
+
+.modal-header h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #111827;
+    margin: 0;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    color: #6b7280;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.modal-close:hover {
+    color: #374151;
+    background: #f3f4f6;
+}
+
+.modal-body {
+    padding: 0 24px 24px;
+}
+
+.modal-info {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px;
+    background: #f0f9ff;
+    border: 1px solid #bae6fd;
+    border-radius: 8px;
+    margin-bottom: 24px;
+    font-size: 14px;
+    color: #0369a1;
+}
+
+.modal-info i {
+    color: #0284c7;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+.modal-field {
+    margin-bottom: 20px;
+}
+
+.modal-field label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: #374151;
+    margin-bottom: 8px;
+}
+
+.modal-dropdown {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 14px;
+    background: white;
+    color: #374151;
+}
+
+.modal-dropdown:focus {
+    outline: none;
+    border-color: #533AFD;
+    box-shadow: 0 0 0 3px rgba(83, 58, 253, 0.1);
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    padding: 24px;
+    border-top: 1px solid #f3f4f6;
+}
+
+.modal-btn {
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 1px solid transparent;
+}
+
+.modal-btn.cancel {
+    background: white;
+    color: #374151;
+    border-color: #d1d5db;
+}
+
+.modal-btn.cancel:hover {
+    background: #f9fafb;
+    border-color: #9ca3af;
+}
+
+.modal-btn.primary {
+    background: #533AFD;
+    color: white;
+}
+
+.modal-btn.primary:hover {
+    background: #4c35e0;
 }
 
 /* Coming Soon Styles */
