@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Period Details - Cactus Practice</title>
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+            <div class="logo">
+                <div class="logo-icon">🦙</div>
+                <span>Cactus Practice</span>
+            </div>
+        </div>
+        
+        <div class="header-center">
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search">
+            </div>
+        </div>
+        
+        <div class="header-right">
+            <div class="header-icons">
+                <i class="fas fa-question-circle"></i>
+                <i class="fas fa-bell"></i>
+            </div>
+            <div class="user-avatar">
+                <i class="fas fa-user"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="#" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="#" class="nav-link"><i class="fas fa-wallet"></i> Balances</a></li>
+                    <li><a href="#" class="nav-link"><i class="fas fa-exchange-alt"></i> Transactions</a></li>
+                    <li><a href="#" class="nav-link"><i class="fas fa-users"></i> Customers</a></li>
+                    <li><a href="#" class="nav-link"><i class="fas fa-box"></i> Product catalog</a></li>
+                </ul>
+                
+                <div class="sidebar-section">
+                    <h4>Shortcuts</h4>
+                    <ul>
+                        <li><a href="#" class="nav-link"><i class="fas fa-chart-pie"></i> Sigma</a></li>
+                        <li><a href="#" class="nav-link"><i class="fas fa-file-invoice"></i> Subscriptions</a></li>
+                        <li><a href="#" class="nav-link"><i class="fas fa-receipt"></i> Invoices</a></li>
+                        <li class="nav-item-with-submenu">
+                            <a href="#" class="nav-link expandable expanded"><i class="fas fa-dollar-sign"></i> Revenue Recognition <i class="fas fa-chevron-down"></i></a>
+                            <ul class="submenu">
+                                <li><a href="#" class="submenu-link">Overview</a></li>
+                                <li><a href="reports.html" class="submenu-link">Reports</a></li>
+                                <li><a href="#" class="submenu-link">Custom metrics</a></li>
+                                <li><a href="#" class="submenu-link">Sigma</a></li>
+                                <li><a href="index.html" class="submenu-link active">Revenue Recognition</a></li>
+                                <li><a href="#" class="submenu-link">Data management</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="reports.html" class="nav-link"><i class="fas fa-chart-bar"></i> Reports</a></li>
+                    </ul>
+                </div>
+                
+                <div class="sidebar-section">
+                    <h4>Products</h4>
+                    <ul>
+                        <li><a href="#" class="nav-link"><i class="fas fa-plug"></i> Connect</a></li>
+                        <li><a href="#" class="nav-link"><i class="fas fa-credit-card"></i> Payments</a></li>
+                        <li><a href="#" class="nav-link"><i class="fas fa-file-alt"></i> Billing</a></li>
+                        <li><a href="#" class="nav-link"><i class="fas fa-chart-line"></i> Reporting</a></li>
+                        <li><a href="#" class="nav-link"><i class="fas fa-ellipsis-h"></i> More</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Breadcrumb -->
+            <div class="breadcrumb">
+                <a href="index.html" class="breadcrumb-link">Summary journal entries</a>
+                <i class="fas fa-chevron-right"></i>
+                <span class="breadcrumb-current" id="period-name">Loading...</span>
+            </div>
+
+            <!-- Period Header -->
+            <div class="period-header">
+                <div class="period-title-section">
+                    <h1 id="period-title">Loading...</h1>
+                    
+                    <div class="period-notice">
+                        <div class="currency-section">
+                            <label for="currency">Show me the amounts in</label>
+                            <select id="currency" class="currency-dropdown">
+                                <option value="usd">USD</option>
+                                <option value="eur">EUR</option>
+                                <option value="gbp">GBP</option>
+                            </select>
+                        </div>
+                        
+                        <div class="info-message">
+                            <i class="fas fa-info-circle"></i>
+                            <span>You may experience a delay opening individual journal entries. Please refer to our status page for more details or adjust your settings</span>
+                            <a href="#" class="settings-link">here</a>
+                            <button class="close-info" aria-label="Close notification">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Entries Header -->
+            <div class="entries-header">
+                <div class="entries-info">
+                    <div class="entries-count">15 entries • Last updated Jul 1, 2024 8:01 AM</div>
+                    <div class="update-time">Stripe will stop updating this report on Jul 1, 2024 8:01 AM</div>
+                </div>
+                
+                <div class="download-container">
+                    <button class="download-btn" id="download-btn">
+                        <i class="fas fa-download"></i>
+                        Download
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    
+                    <div class="download-popover" id="download-popover">
+                        <div class="download-option" onclick="showDownloadModal()">
+                            <div class="download-option-title">Summary</div>
+                            <div class="download-option-desc">Get a CSV file of the summary data</div>
+                        </div>
+                        <div class="download-option" onclick="showItemizedModal()">
+                            <div class="download-option-title">Itemized</div>
+                            <div class="download-option-desc">Get a CSV with all transaction details</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Journal Entries Table -->
+            <div class="content-area">
+                <div class="table-container">
+                    <table class="detailed-table">
+                        <thead>
+                            <tr>
+                                <th>JE number</th>
+                                <th>Event type</th>
+                                <th>GL accounts</th>
+                                <th>Stripe accounts</th>
+                                <th class="amount-header">Amount (debit)</th>
+                                <th class="amount-header">Amount (credit)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="journal-entries-table">
+                            <!-- Journal entries will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Download Summary Modal -->
+    <div class="modal-backdrop" id="download-modal" onclick="hideDownloadModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h3>Download summary</h3>
+                <button class="modal-close" onclick="hideDownloadModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-info">
+                    <i class="fas fa-info-circle"></i>
+                    <span>Summary for <span id="modal-period-name">Period</span></span>
+                </div>
+                <div class="modal-field">
+                    <label for="modal-currency">Show me the amounts in</label>
+                    <select id="modal-currency" class="modal-dropdown">
+                        <option value="usd">USD</option>
+                        <option value="eur">EUR</option>
+                        <option value="gbp">GBP</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-btn cancel" onclick="hideDownloadModal()">Cancel</button>
+                <button class="modal-btn primary" onclick="confirmDownload()">Download</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Download Itemized Modal -->
+    <div class="modal-backdrop" id="itemized-modal" onclick="hideItemizedModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h3>Download itemized</h3>
+                <button class="modal-close" onclick="hideItemizedModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-info">
+                    <i class="fas fa-info-circle"></i>
+                    <span>Itemized for <span id="itemized-period-name">Period</span></span>
+                </div>
+                <div class="modal-field">
+                    <label for="itemized-currency">Show me the amounts in</label>
+                    <select id="itemized-currency" class="modal-dropdown">
+                        <option value="usd">USD</option>
+                        <option value="eur">EUR</option>
+                        <option value="gbp">GBP</option>
+                    </select>
+                </div>
+                <div class="modal-field">
+                    <h4>Notifications</h4>
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="email-notification" class="modal-checkbox" checked>
+                        <label for="email-notification" class="checkbox-label">Email me when the download is ready</label>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-btn cancel" onclick="hideItemizedModal()">Cancel</button>
+                <button class="modal-btn primary" onclick="confirmItemizedDownload()">Download</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include shared utilities -->
+    <script src="js/shared.js"></script>
+    <!-- Period details specific JavaScript -->
+    <script src="js/period-details.js"></script>
+</body>
+</html> 
