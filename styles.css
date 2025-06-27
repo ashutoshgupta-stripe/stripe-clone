@@ -836,8 +836,6 @@ body {
     margin-bottom: 32px;
 }
 
-
-
 /* Responsive Design */
 @media (max-width: 1024px) {
     .sidebar {
@@ -894,4 +892,378 @@ body {
     .data-table td {
         padding: 8px 12px;
     }
+}
+
+/* Page Header Styles */
+.page-header {
+    padding: 24px 32px;
+    background: #ffffff;
+    border-bottom: 1px solid #ebeef1;
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+}
+
+.breadcrumb-link {
+    color: #533afd;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 16px;
+}
+
+.breadcrumb-link:hover {
+    text-decoration: underline;
+}
+
+.breadcrumb i {
+    color: #596171;
+    font-size: 8px;
+}
+
+.title-section {
+    margin-bottom: 24px;
+}
+
+.title-with-badge {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 4px;
+}
+
+.page-title {
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 36px;
+    color: #353a44;
+    margin: 0;
+}
+
+.status-badge {
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 16px;
+    text-transform: uppercase;
+}
+
+.status-badge.open {
+    background-color: #cbf5fd;
+    color: #045ad0;
+    border: 1px solid #a7e7fc;
+}
+
+.period-subtitle {
+    font-size: 12px;
+    color: #596171;
+    line-height: 16px;
+    margin: 0;
+}
+
+.currency-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    height: 24px;
+    padding: 0 8px;
+    background: #ffffff;
+    border: 1px solid #d8dee4;
+    border-radius: 999px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.currency-chip:hover {
+    background-color: #f5f6f8;
+}
+
+.chip-label {
+    color: #596171;
+    font-weight: 600;
+}
+
+.chip-separator {
+    width: 1px;
+    height: 12px;
+    background-color: #b6c0cd;
+}
+
+.chip-value {
+    color: #533afd;
+    font-weight: 600;
+}
+
+.currency-chip i {
+    color: #596171;
+    font-size: 8px;
+}
+
+/* Info Callout */
+.info-callout {
+    margin: 0 32px 24px 32px;
+    padding: 16px;
+    background-color: #f5f6f8;
+    border-radius: 8px;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.callout-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    flex: 1;
+}
+
+.callout-content i {
+    color: #0072e9;
+    font-size: 16px;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+.callout-text {
+    font-size: 14px;
+    line-height: 20px;
+    color: #596171;
+}
+
+.callout-link {
+    color: #353a44;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.callout-link:hover {
+    text-decoration: underline;
+}
+
+.callout-close {
+    background: none;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 4px;
+    color: #596171;
+    flex-shrink: 0;
+}
+
+.callout-close:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Entries Section */
+.entries-section {
+    margin: 0 32px;
+}
+
+.entries-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.entries-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.entries-count {
+    color: #353a44;
+    font-weight: 600;
+}
+
+.entries-separator {
+    color: #353a44;
+    font-weight: 600;
+}
+
+.entries-updated {
+    color: #596171;
+}
+
+.download-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: #675dff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.download-btn:hover {
+    background: #5a52e6;
+}
+
+/* Table Styles */
+.table-wrapper {
+    background: #ffffff;
+    border: 1px solid #d8dee4;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.journal-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.journal-table thead {
+    background: #ffffff;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.journal-table th {
+    padding: 8px;
+    text-align: left;
+    font-size: 12px;
+    font-weight: 600;
+    color: #353a44;
+    border-bottom: 1px solid #d8dee4;
+    border-right: 1px solid #d8dee4;
+    line-height: 16px;
+}
+
+.journal-table th:last-child {
+    border-right: none;
+}
+
+.journal-table td {
+    padding: 10px 8px;
+    border-bottom: 1px solid #d8dee4;
+    border-right: 1px solid #d8dee4;
+    vertical-align: top;
+    line-height: 20px;
+}
+
+.journal-table td:last-child {
+    border-right: none;
+}
+
+.journal-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Column Widths */
+.col-je-number, .je-number {
+    width: 120px;
+}
+
+.col-event-type, .event-type {
+    width: 180px;
+}
+
+.col-gl-accounts, .gl-account {
+    width: 180px;
+}
+
+.col-stripe-accounts, .stripe-account {
+    width: 180px;
+}
+
+.col-debit-amount, .debit-amount {
+    width: 125px;
+    text-align: right;
+}
+
+.col-credit-amount, .credit-amount {
+    width: 125px;
+    text-align: right;
+}
+
+.col-currency, .currency {
+    width: 85px;
+    text-align: right;
+}
+
+.col-description, .description {
+    width: 182px;
+}
+
+/* Table Content Styling */
+.je-number {
+    font-weight: 600;
+    color: #353a44;
+}
+
+.event-type {
+    color: #596171;
+}
+
+.gl-account, .stripe-account {
+    color: #596171;
+}
+
+.debit-amount, .credit-amount {
+    font-weight: 600;
+    color: #353a44;
+}
+
+.currency {
+    color: #596171;
+}
+
+.description {
+    color: #353a44;
+}
+
+/* Row Hover Effect */
+.entry-row:hover {
+    background-color: #f9fafb;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1440px) {
+    .page-header {
+        padding: 24px 24px;
+    }
+    
+    .info-callout {
+        margin: 0 24px 24px 24px;
+    }
+    
+    .entries-section {
+        margin: 0 24px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .journal-table {
+        font-size: 12px;
+    }
+    
+    .journal-table th,
+    .journal-table td {
+        padding: 6px 4px;
+    }
+    
+    .col-je-number, .je-number { width: 80px; }
+    .col-event-type, .event-type { width: 140px; }
+    .col-gl-accounts, .gl-account { width: 140px; }
+    .col-stripe-accounts, .stripe-account { width: 140px; }
+    .col-debit-amount, .debit-amount { width: 100px; }
+    .col-credit-amount, .credit-amount { width: 100px; }
+    .col-currency, .currency { width: 60px; }
+    .col-description, .description { width: 100px; }
 } 

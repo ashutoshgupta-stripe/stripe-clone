@@ -48,28 +48,15 @@
                     <li><a href="#" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
                     <li><a href="#" class="nav-link"><i class="fas fa-wallet"></i> Balances</a></li>
                     <li><a href="#" class="nav-link"><i class="fas fa-exchange-alt"></i> Transactions</a></li>
-                    <li><a href="#" class="nav-link"><i class="fas fa-users"></i> Customers</a></li>
+                    <li><a href="#" class="nav-link"><i class="fas fa-users"></i> Directory</a></li>
                     <li><a href="#" class="nav-link"><i class="fas fa-box"></i> Product catalog</a></li>
                 </ul>
                 
                 <div class="sidebar-section">
                     <h4>Shortcuts</h4>
                     <ul>
-                        <li><a href="#" class="nav-link"><i class="fas fa-chart-pie"></i> Sigma</a></li>
-                        <li><a href="#" class="nav-link"><i class="fas fa-file-invoice"></i> Subscriptions</a></li>
-                        <li><a href="#" class="nav-link"><i class="fas fa-receipt"></i> Invoices</a></li>
-                        <li class="nav-item-with-submenu">
-                            <a href="#" class="nav-link expandable expanded"><i class="fas fa-dollar-sign"></i> Revenue Recognition <i class="fas fa-chevron-down"></i></a>
-                            <ul class="submenu">
-                                <li><a href="#" class="submenu-link">Overview</a></li>
-                                <li><a href="reports.html" class="submenu-link">Reports</a></li>
-                                <li><a href="#" class="submenu-link">Custom metrics</a></li>
-                                <li><a href="#" class="submenu-link">Sigma</a></li>
-                                <li><a href="index.html" class="submenu-link active">Revenue Recognition</a></li>
-                                <li><a href="#" class="submenu-link">Data management</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="reports.html" class="nav-link"><i class="fas fa-chart-bar"></i> Reports</a></li>
+                        <li><a href="#" class="nav-link"><i class="fas fa-shield-alt"></i> Fraud tools</a></li>
+                        <li><a href="#" class="nav-link"><i class="fas fa-terminal"></i> Terminal</a></li>
                     </ul>
                 </div>
                 
@@ -88,83 +75,209 @@
 
         <!-- Main Content Area -->
         <main class="main-content">
-            <!-- Breadcrumb -->
-            <div class="breadcrumb">
-                <a href="index.html" class="breadcrumb-link">Summary journal entries</a>
-                <i class="fas fa-chevron-right"></i>
-                <span class="breadcrumb-current" id="period-name">Loading...</span>
+            <!-- Page Header -->
+            <div class="page-header">
+                <!-- Breadcrumb -->
+                <div class="breadcrumb">
+                    <a href="index.html" class="breadcrumb-link">Summary journal entries</a>
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+
+                <!-- Title Section -->
+                <div class="title-section">
+                    <div class="title-with-badge">
+                        <h1 class="page-title">July 1 - July 31, 2024</h1>
+                        <span class="status-badge open">Open</span>
+                    </div>
+                    <p class="period-subtitle">This period is still open—new transactions will affect the data.</p>
+                </div>
+
+                <!-- Currency Chip -->
+                <div class="currency-chip">
+                    <span class="chip-label">Currency</span>
+                    <div class="chip-separator"></div>
+                    <span class="chip-value">USD</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
             </div>
 
-            <!-- Period Header -->
-            <div class="period-header">
-                <div class="period-title-section">
-                    <h1 id="period-title">Loading...</h1>
-                    
-                    <div class="period-notice">
-                        <div class="currency-section">
-                            <label for="currency">Show me the amounts in</label>
-                            <select id="currency" class="currency-dropdown">
-                                <option value="usd">USD</option>
-                                <option value="eur">EUR</option>
-                                <option value="gbp">GBP</option>
-                            </select>
-                        </div>
-                        
-                        <div class="info-message">
-                            <i class="fas fa-info-circle"></i>
-                            <span>You may experience a delay opening individual journal entries. Please refer to our status page for more details or adjust your settings</span>
-                            <a href="#" class="settings-link">here</a>
-                            <button class="close-info" aria-label="Close notification">
-                                <i class="fas fa-times"></i>
-                            </button>
-                        </div>
+            <!-- Info Callout -->
+            <div class="info-callout">
+                <div class="callout-content">
+                    <i class="fas fa-info-circle"></i>
+                    <div class="callout-text">
+                        <span>By default, we group summary entries by event type. </span>
+                        <a href="#" class="callout-link">Go to settings</a>
+                        <span> to change the format.</span>
                     </div>
                 </div>
+                <button class="callout-close">
+                    <i class="fas fa-times"></i>
+                </button>
             </div>
 
-            <!-- Entries Header -->
-            <div class="entries-header">
-                <div class="entries-info">
-                    <div class="entries-count">15 entries • Last updated Jul 1, 2024 8:01 AM</div>
-                    <div class="update-time">Stripe will stop updating this report on Jul 1, 2024 8:01 AM</div>
-                </div>
-                
-                <div class="download-container">
-                    <button class="download-btn" id="download-btn">
+            <!-- Entries Section -->
+            <div class="entries-section">
+                <!-- Entries Header -->
+                <div class="entries-header">
+                    <div class="entries-meta">
+                        <span class="entries-count">Showing 3 entries</span>
+                        <span class="entries-separator">•</span>
+                        <span class="entries-updated">Updated today, at 11:00 PM</span>
+                    </div>
+                    <button class="download-btn">
                         <i class="fas fa-download"></i>
                         Download
-                        <i class="fas fa-chevron-down"></i>
                     </button>
-                    
-                    <div class="download-popover" id="download-popover">
-                        <div class="download-option" onclick="showDownloadModal()">
-                            <div class="download-option-title">Summary</div>
-                            <div class="download-option-desc">Get a CSV file of the summary data</div>
-                        </div>
-                        <div class="download-option" onclick="showItemizedModal()">
-                            <div class="download-option-title">Itemized</div>
-                            <div class="download-option-desc">Get a CSV with all transaction details</div>
-                        </div>
-                    </div>
                 </div>
-            </div>
 
-            <!-- Journal Entries Table -->
-            <div class="content-area">
-                <div class="table-container">
-                    <table class="detailed-table">
+                <!-- Journal Entries Table -->
+                <div class="table-wrapper">
+                    <table class="journal-table">
                         <thead>
                             <tr>
-                                <th>JE number</th>
-                                <th>Event type</th>
-                                <th>GL accounts</th>
-                                <th>Stripe accounts</th>
-                                <th class="amount-header">Amount (debit)</th>
-                                <th class="amount-header">Amount (credit)</th>
+                                <th class="col-je-number">JE number</th>
+                                <th class="col-event-type">Event type</th>
+                                <th class="col-gl-accounts">GL Accounts</th>
+                                <th class="col-stripe-accounts">Stripe accounts</th>
+                                <th class="col-debit-amount">Debit amount</th>
+                                <th class="col-credit-amount">Credit amount</th>
+                                <th class="col-currency">Currency</th>
+                                <th class="col-description">Description</th>
                             </tr>
                         </thead>
-                        <tbody id="journal-entries-table">
-                            <!-- Journal entries will be populated here -->
+                        <tbody>
+                            <!-- JE-000079 -->
+                            <tr class="entry-row">
+                                <td class="je-number" rowspan="3">JE-000079</td>
+                                <td class="event-type" rowspan="3">Credit note created</td>
+                                <td class="gl-account">GST output tax</td>
+                                <td class="stripe-account">GST output tax</td>
+                                <td class="debit-amount">$30.80</td>
+                                <td class="credit-amount">$0.00</td>
+                                <td class="currency">USD</td>
+                                <td class="description">-</td>
+                            </tr>
+                            <tr class="entry-row">
+                                <td class="gl-account">Individual lessons</td>
+                                <td class="stripe-account">Individual lessons</td>
+                                <td class="debit-amount">$342.20</td>
+                                <td class="credit-amount">$0.00</td>
+                                <td class="currency">USD</td>
+                                <td class="description">-</td>
+                            </tr>
+                            <tr class="entry-row">
+                                <td class="gl-account">Account receivable</td>
+                                <td class="stripe-account">Account receivable</td>
+                                <td class="debit-amount">$0.00</td>
+                                <td class="credit-amount">$373.00</td>
+                                <td class="currency">USD</td>
+                                <td class="description">-</td>
+                            </tr>
+
+                            <!-- JE-000078 -->
+                            <tr class="entry-row">
+                                <td class="je-number" rowspan="3">JE-000078</td>
+                                <td class="event-type" rowspan="3">Customer balance transaction</td>
+                                <td class="gl-account">Customer balance adjustment</td>
+                                <td class="stripe-account">Customer balance adjustment</td>
+                                <td class="debit-amount">$3,089.00</td>
+                                <td class="credit-amount">$0.00</td>
+                                <td class="currency">USD</td>
+                                <td class="description">-</td>
+                            </tr>
+                            <tr class="entry-row">
+                                <td class="gl-account">Customer balance</td>
+                                <td class="stripe-account">Customer balance</td>
+                                <td class="debit-amount">$0.00</td>
+                                <td class="credit-amount">$3,089.00</td>
+                                <td class="currency">USD</td>
+                                <td class="description">-</td>
+                            </tr>
+                            <tr class="entry-row">
+                                <td class="gl-account">Account receivable</td>
+                                <td class="stripe-account">Account receivable</td>
+                                <td class="debit-amount">$130,055.70</td>
+                                <td class="credit-amount">$0.00</td>
+                                <td class="currency">USD</td>
+                                <td class="description">-</td>
+                            </tr>
+
+                            <!-- JE-000077 with multiple rows -->
+                            <tr class="entry-row">
+                                <td class="je-number" rowspan="12">JE-000077</td>
+                                <td class="event-type" rowspan="12">Invoice line item finalized</td>
+                                <td class="gl-account">Customer balance</td>
+                                <td class="stripe-account">Customer balance</td>
+                                <td class="debit-amount">$5,640.25</td>
+                                <td class="credit-amount">$0.00</td>
+                                <td class="currency">USD</td>
+                                <td class="description">-</td>
+                            </tr>
+                            <tr class="entry-row">
+                                <td class="gl-account">Deferred Income Individual Lessons</td>
+                                <td class="stripe-account">Deferred Income Individual Lessons</td>
+                                <td class="debit-amount">$12,970.80</td>
+                                <td class="credit-amount">$0.00</td>
+                                <td class="currency">USD</td>
+                                <td class="description">-</td>
+                            </tr>
+                            <tr class="entry-row">
+                                <td class="gl-account">Discount Given</td>
+                                <td class="stripe-account">Discount Given</td>
+                                <td class="debit-amount">$831.72</td>
+                                <td class="credit-amount">$0.00</td>
+                                <td class="currency">USD</td>
+                                <td class="description">-</td>
+                            </tr>
+                            <tr class="entry-row">
+                                <td class="gl-account">Discount Given - Registration fee</td>
+                                <td class="stripe-account">Discount Given - Registration fee</td>
+                                <td class="debit-amount">$320.00</td>
+                                <td class="credit-amount">$0.00</td>
+                                <td class="currency">USD</td>
+                                <td class="description">-</td>
+                            </tr>
+                            <tr class="entry-row">
+                                <td class="gl-account">Deferred Pre-Payment Discounts</td>
+                                <td class="stripe-account">Deferred Pre-Payment Discounts</td>
+                                <td class="debit-amount">$0.00</td>
+                                <td class="credit-amount">$16.67</td>
+                                <td class="currency">USD</td>
+                                <td class="description">-</td>
+                            </tr>
+                            <tr class="entry-row">
+                                <td class="gl-account">Enrollment Deposit</td>
+                                <td class="stripe-account">Enrollment Deposit</td>
+                                <td class="debit-amount">$0.00</td>
+                                <td class="credit-amount">$14,343.00</td>
+                                <td class="currency">USD</td>
+                                <td class="description">-</td>
+                            </tr>
+                            <tr class="entry-row">
+                                <td class="gl-account">GST output tax</td>
+                                <td class="stripe-account">GST output tax</td>
+                                <td class="debit-amount">$0.00</td>
+                                <td class="credit-amount">$10,020.49</td>
+                                <td class="currency">USD</td>
+                                <td class="description">-</td>
+                            </tr>
+                            <tr class="entry-row">
+                                <td class="gl-account">Individual lessons</td>
+                                <td class="stripe-account">Individual lessons</td>
+                                <td class="debit-amount">$0.00</td>
+                                <td class="credit-amount">$123,944.07</td>
+                                <td class="currency">USD</td>
+                                <td class="description">-</td>
+                            </tr>
+                            <tr class="entry-row">
+                                <td class="gl-account">Registration fees</td>
+                                <td class="stripe-account">Registration fees</td>
+                                <td class="debit-amount">$0.00</td>
+                                <td class="credit-amount">$1,494.24</td>
+                                <td class="currency">USD</td>
+                                <td class="description">-</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -172,76 +285,8 @@
         </main>
     </div>
 
-    <!-- Download Summary Modal -->
-    <div class="modal-backdrop" id="download-modal" onclick="hideDownloadModal()">
-        <div class="modal-content" onclick="event.stopPropagation()">
-            <div class="modal-header">
-                <h3>Download summary</h3>
-                <button class="modal-close" onclick="hideDownloadModal()">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="modal-info">
-                    <i class="fas fa-info-circle"></i>
-                    <span>Summary for <span id="modal-period-name">Period</span></span>
-                </div>
-                <div class="modal-field">
-                    <label for="modal-currency">Show me the amounts in</label>
-                    <select id="modal-currency" class="modal-dropdown">
-                        <option value="usd">USD</option>
-                        <option value="eur">EUR</option>
-                        <option value="gbp">GBP</option>
-                    </select>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button class="modal-btn cancel" onclick="hideDownloadModal()">Cancel</button>
-                <button class="modal-btn primary" onclick="confirmDownload()">Download</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Download Itemized Modal -->
-    <div class="modal-backdrop" id="itemized-modal" onclick="hideItemizedModal()">
-        <div class="modal-content" onclick="event.stopPropagation()">
-            <div class="modal-header">
-                <h3>Download itemized</h3>
-                <button class="modal-close" onclick="hideItemizedModal()">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="modal-info">
-                    <i class="fas fa-info-circle"></i>
-                    <span>Itemized for <span id="itemized-period-name">Period</span></span>
-                </div>
-                <div class="modal-field">
-                    <label for="itemized-currency">Show me the amounts in</label>
-                    <select id="itemized-currency" class="modal-dropdown">
-                        <option value="usd">USD</option>
-                        <option value="eur">EUR</option>
-                        <option value="gbp">GBP</option>
-                    </select>
-                </div>
-                <div class="modal-field">
-                    <h4>Notifications</h4>
-                    <div class="checkbox-container">
-                        <input type="checkbox" id="email-notification" class="modal-checkbox" checked>
-                        <label for="email-notification" class="checkbox-label">Email me when the download is ready</label>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button class="modal-btn cancel" onclick="hideItemizedModal()">Cancel</button>
-                <button class="modal-btn primary" onclick="confirmItemizedDownload()">Download</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Include shared utilities -->
+    <!-- Include JavaScript -->
     <script src="js/shared.js"></script>
-    <!-- Period details specific JavaScript -->
     <script src="js/period-details.js"></script>
 </body>
 </html> 
