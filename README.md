@@ -14,7 +14,7 @@ A modern, responsive dashboard replicating the Revenue Recognition interface wit
 - Interactive data table showing accounting periods
 - Status badges with color-coded statuses (Open/Closed)
 - Sortable columns and hover effects
-- Real-time search functionality
+- Real-time search functionality test
 
 ### 🧭 Navigation
 - Fixed header with search bar and user controls
@@ -32,7 +32,7 @@ A modern, responsive dashboard replicating the Revenue Recognition interface wit
 - Tab switching functionality
 - Search filtering
 - Mobile sidebar toggle
-- Loading states with animations
+-  Loading states with animations
 
 ## File Structure
 
