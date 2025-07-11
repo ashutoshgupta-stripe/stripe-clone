@@ -75,5 +75,71 @@
     <script src="js/shared.js"></script>
     <!-- Dashboard specific JavaScript -->
     <script src="js/dashboard.js"></script>
+    
+    <!-- Fallback and debugging script -->
+    <script>
+        // Debug script to check if files are loading
+        console.log('JavaScript is running');
+        console.log('Functions available:', {
+            initializeHeader: typeof initializeHeader,
+            initializeSidebar: typeof initializeSidebar,
+            populateTable: typeof populateTable
+        });
+        
+        // Fallback initialization with error handling
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded, attempting initialization...');
+            
+            try {
+                // Try to initialize header
+                if (typeof initializeHeader === 'function') {
+                    initializeHeader();
+                    console.log('Header initialized successfully');
+                } else {
+                    console.error('initializeHeader function not found');
+                }
+                
+                // Try to initialize sidebar
+                if (typeof initializeSidebar === 'function') {
+                    initializeSidebar('index');
+                    console.log('Sidebar initialized successfully');
+                } else {
+                    console.error('initializeSidebar function not found');
+                }
+                
+                // Try to populate table
+                if (typeof populateTable === 'function') {
+                    populateTable();
+                    console.log('Table populated successfully');
+                } else {
+                    console.error('populateTable function not found');
+                }
+                
+            } catch (error) {
+                console.error('Error during initialization:', error);
+                
+                // Fallback: Add basic static content if JavaScript fails
+                const sidebar = document.querySelector('.sidebar');
+                const header = document.querySelector('.header');
+                
+                if (sidebar && !sidebar.innerHTML.trim()) {
+                    sidebar.innerHTML = `
+                        <div style="padding: 20px; color: #999; font-size: 14px;">
+                            <p>Loading navigation...</p>
+                            <p>If this persists, please refresh the page.</p>
+                        </div>
+                    `;
+                }
+                
+                if (header && !header.innerHTML.trim()) {
+                    header.innerHTML = `
+                        <div style="padding: 20px; color: #999; font-size: 14px;">
+                            <p>Loading header...</p>
+                        </div>
+                    `;
+                }
+            }
+        });
+    </script>
 </body>
 </html> 
