@@ -9,33 +9,35 @@ function createHeaderHTML() {
                 </div>
             </div>
             
-            <div class="header-center">
-                <div class="search-container">
-                    <div class="search-bar">
-                        <i class="fas fa-search search-icon"></i>
-                        <input type="text" placeholder="Search" class="search-input">
-                        <div class="keyboard-shortcut">
-                            <span>/</span>
+            <div class="header-content">
+                <div class="header-center">
+                    <div class="search-container">
+                        <div class="search-bar">
+                            <i class="fas fa-search search-icon"></i>
+                            <input type="text" placeholder="Search" class="search-input">
+                            <div class="keyboard-shortcut">
+                                <span>/</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="header-right">
-                <div class="header-actions">
-                    <button class="action-btn help-btn" title="Help">
-                        <img src="icon/Help.svg" alt="Help" class="action-icon">
-                    </button>
-                    <button class="action-btn notifications-btn" title="Notifications">
-                        <img src="icon/Notifications.svg" alt="Notifications" class="action-icon">
-                        <div class="notification-dot"></div>
-                    </button>
-                    <button class="action-btn settings-btn" title="Settings">
-                        <img src="icon/Settings.svg" alt="Settings" class="action-icon">
-                    </button>
-                    <button class="action-btn create-btn" title="Create">
-                        <img src="icon/Create.svg" alt="Create" class="create-icon">
-                    </button>
+                
+                <div class="header-right">
+                    <div class="header-actions">
+                        <button class="action-btn help-btn" title="Help">
+                            <img src="icon/Help.svg" alt="Help" class="action-icon">
+                        </button>
+                        <button class="action-btn notifications-btn" title="Notifications">
+                            <img src="icon/Notifications.svg" alt="Notifications" class="action-icon">
+                            <div class="notification-dot"></div>
+                        </button>
+                        <button class="action-btn settings-btn" title="Settings">
+                            <img src="icon/Settings.svg" alt="Settings" class="action-icon">
+                        </button>
+                        <button class="action-btn create-btn" title="Create">
+                            <img src="icon/Create.svg" alt="Create" class="create-icon">
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
