@@ -1,6 +1,7 @@
 // Activity page specific functionality
 document.addEventListener('DOMContentLoaded', function() {
-    initializeSidebarNavigation();
+    initializeHeader();
+    initializeSidebar('activity');
     initializeResponsiveSidebar();
     initializeSearch();
     initializeTooltips();

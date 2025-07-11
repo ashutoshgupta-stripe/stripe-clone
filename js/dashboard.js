@@ -2,7 +2,8 @@
 document.addEventListener('DOMContentLoaded', function() {
     populateTable();
     initializeTabNavigation();
-    initializeSidebarNavigation();
+    initializeHeader();
+    initializeSidebar('index');
     initializeResponsiveSidebar();
     initializeSearch();
 });

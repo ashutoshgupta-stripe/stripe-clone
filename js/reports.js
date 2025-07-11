@@ -1,6 +1,7 @@
 // Reports page specific functionality
 document.addEventListener('DOMContentLoaded', function() {
-    initializeSidebarNavigation();
+    initializeHeader();
+    initializeSidebar('reports');
     initializeResponsiveSidebar();
     initializeSearch();
 });

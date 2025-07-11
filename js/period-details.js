@@ -1,6 +1,7 @@
 // Period details page specific functionality
 document.addEventListener('DOMContentLoaded', function() {
-    initializeSidebarNavigation();
+    initializeHeader();
+    initializeSidebar('period-details');
     initializeResponsiveSidebar();
     initializeSearch();
     loadPeriodDetails();
