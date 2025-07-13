@@ -562,4 +562,169 @@ function initializeTooltips() {
             tooltip.style.display = 'none';
         });
     });
+}
+
+// Filter Chip Component System
+// 
+// Usage Examples:
+// 1. Single chip: createFilterChip({ label: 'Account', value: 'Practice', type: 'mandatory' })
+// 2. Full filter row: createStandardFilters('activity')
+// 3. Custom filter row: createFilterRow([...filters], { text: 'More filters' })
+//
+// The system is based on the currency-chip design and is fully reusable across pages.
+
+function createFilterChip(options = {}) {
+    const {
+        label = '',
+        value = '',
+        type = 'mandatory', // 'mandatory' or 'removable'
+        removable = false,
+        onClick = null,
+        onRemove = null
+    } = options;
+    
+    const chipElement = document.createElement('div');
+    chipElement.className = `filter-chip ${type}`;
+    
+    let chipHTML = '';
+    
+    // Add remove icon for removable chips
+    if (removable || type === 'removable') {
+        chipHTML += `<i class="fas fa-times chip-remove-icon"></i>`;
+    }
+    
+    // Add label
+    if (label) {
+        chipHTML += `<span class="chip-label">${label}</span>`;
+    }
+    
+    // Add separator if both label and value exist
+    if (label && value) {
+        chipHTML += `<div class="chip-separator"></div>`;
+    }
+    
+    // Add value
+    if (value) {
+        chipHTML += `<span class="chip-value">${value}</span>`;
+    }
+    
+    // Add dropdown icon
+    chipHTML += `<i class="fas fa-chevron-down chip-dropdown-icon"></i>`;
+    
+    chipElement.innerHTML = chipHTML;
+    
+    // Add click handler
+    if (onClick) {
+        chipElement.addEventListener('click', (e) => {
+            if (!e.target.classList.contains('chip-remove-icon')) {
+                onClick(chipElement, options);
+            }
+        });
+    }
+    
+    // Add remove handler
+    if (onRemove) {
+        const removeIcon = chipElement.querySelector('.chip-remove-icon');
+        if (removeIcon) {
+            removeIcon.addEventListener('click', (e) => {
+                e.stopPropagation();
+                onRemove(chipElement, options);
+            });
+        }
+    }
+    
+    return chipElement;
+}
+
+function createMoreFiltersButton(options = {}) {
+    const {
+        text = 'More filters',
+        onClick = null
+    } = options;
+    
+    const buttonElement = document.createElement('button');
+    buttonElement.className = 'activity-more-filters-btn';
+    buttonElement.innerHTML = `
+        <i class="fas fa-plus"></i>
+        ${text}
+    `;
+    
+    if (onClick) {
+        buttonElement.addEventListener('click', onClick);
+    }
+    
+    return buttonElement;
+}
+
+function createFilterRow(filters = [], moreFiltersOptions = null) {
+    const rowElement = document.createElement('div');
+    rowElement.className = 'activity-filter-row';
+    
+    // Add filter chips
+    filters.forEach(filterOptions => {
+        const chip = createFilterChip(filterOptions);
+        rowElement.appendChild(chip);
+    });
+    
+    // Add more filters button if specified
+    if (moreFiltersOptions) {
+        const moreButton = createMoreFiltersButton(moreFiltersOptions);
+        rowElement.appendChild(moreButton);
+    }
+    
+    return rowElement;
+}
+
+// Example usage function for different pages
+function createStandardFilters(currentPage = '') {
+    const standardFilters = [
+        {
+            label: 'Account',
+            value: 'Cactus practice',
+            type: 'mandatory',
+            onClick: (chip, options) => {
+                console.log('Account filter clicked', options);
+            }
+        },
+        {
+            label: 'Currency',
+            value: 'USD',
+            type: 'mandatory',
+            onClick: (chip, options) => {
+                console.log('Currency filter clicked', options);
+            }
+        },
+        {
+            label: 'Date',
+            value: 'Mar 1–Mar 31',
+            type: 'mandatory',
+            onClick: (chip, options) => {
+                console.log('Date filter clicked', options);
+            }
+        }
+    ];
+    
+    // Add page-specific filters
+    if (currentPage === 'activity') {
+        standardFilters.push({
+            label: 'Region',
+            value: 'EMEA',
+            type: 'removable',
+            removable: true,
+            onClick: (chip, options) => {
+                console.log('Region filter clicked', options);
+            },
+            onRemove: (chip, options) => {
+                chip.remove();
+                console.log('Region filter removed', options);
+            }
+        });
+    }
+    
+    return createFilterRow(standardFilters, {
+        text: 'More filters',
+        onClick: () => {
+            console.log('More filters clicked');
+        }
+    });
 } 
