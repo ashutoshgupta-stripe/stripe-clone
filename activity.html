@@ -26,180 +26,206 @@
 
         <!-- Main Content Area -->
         <main class="main-content">
-            <div class="breadcrumb">
-                <a href="reports.html">Reports</a>
-                <span class="breadcrumb-separator">></span>
-                <span class="breadcrumb-current">Activity</span>
-            </div>
-            
-            <div class="content-header">
-                <h1>Activity</h1>
-            </div>
-            
-            <div class="activity-content">
-                <div class="activity-container">
-                    <div class="activity-description">
-                        <p>Activity on your Stripe account from <strong>May 1, 2025–May 31, 2025</strong>, based on the <strong>originating event date</strong>. Useful to record journal entries for an activity period.</p>
-                    </div>
+            <div class="activity-container">
+                <!-- Left Column -->
+                <div class="activity-left">
+                    <button class="activity-back-btn" onclick="window.location.href='reports.html'">
+                        ← All reports
+                    </button>
                     
-                    <div class="activity-filters">
-                        <div class="filter-group">
-                            <select class="filter-select">
-                                <option>Stripe</option>
-                            </select>
-                            <select class="filter-select">
-                                <option>Last month</option>
-                            </select>
-                            <select class="filter-select date-range">
-                                <option>May 1–May 31</option>
-                            </select>
-                            <select class="filter-select">
-                                <option>USD</option>
-                            </select>
-                        </div>
-                        <div class="action-buttons">
-                            <button class="btn btn-secondary">
-                                <i class="fas fa-calendar"></i>
-                                Schedule...
-                            </button>
-                            <button class="btn btn-secondary">
-                                <i class="fas fa-print"></i>
-                                Print
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <div class="activity-summary">
-                        <div class="summary-header">
-                            <h2>Activity summary</h2>
-                            <button class="btn btn-primary download-btn">
+                    <div class="activity-main-content">
+                        <!-- Activity Header -->
+                        <div class="activity-page-header">
+                            <h1 class="activity-page-title">Activity</h1>
+                            <button class="activity-export-btn">
                                 <i class="fas fa-download"></i>
-                                Download
+                                Export
                             </button>
                         </div>
-                        <p class="summary-description">Provides a breakdown by <a href="#" class="link">reporting category</a> for your activity, including all transactions except for payouts. Itemized downloads include attribution dates, related charge IDs, customer IDs, etc.</p>
                         
-                        <div class="activity-table">
-                            <table>
+                        <!-- Filters -->
+                        <div class="activity-filters-section">
+                            <div class="activity-filter-row">
+                                <div class="activity-filter-item">
+                                    <label class="activity-filter-label">Account</label>
+                                    <select class="activity-filter-select">
+                                        <option value="cactus-practice">Cactus practice</option>
+                                    </select>
+                                </div>
+                                <div class="activity-filter-item">
+                                    <label class="activity-filter-label">Currency</label>
+                                    <select class="activity-filter-select">
+                                        <option value="usd">USD</option>
+                                    </select>
+                                </div>
+                                <div class="activity-filter-item">
+                                    <label class="activity-filter-label">Date</label>
+                                    <select class="activity-filter-select">
+                                        <option value="mar-1-31">Mar 1–Mar 31</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="activity-filter-row">
+                                <div class="activity-filter-item">
+                                    <label class="activity-filter-label">Region</label>
+                                    <select class="activity-filter-select">
+                                        <option value="emea">EMEA</option>
+                                    </select>
+                                </div>
+                                <button class="activity-more-filters-btn">
+                                    <i class="fas fa-plus"></i>
+                                    More filters
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Activity Table -->
+                        <div class="activity-report-table">
+                            <table class="activity-table">
                                 <thead>
                                     <tr>
-                                        <th class="activity-type-header"></th>
-                                        <th class="count-header">Count</th>
-                                        <th class="amount-header">Gross amount</th>
+                                        <th class="activity-description-col">Description</th>
+                                        <th class="activity-amount-col">Amount</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="activity-section">
-                                        <td class="activity-type">
-                                            Charges 
-                                            <i class="fas fa-info-circle info-icon" data-tooltip="Revenue from successful payments"></i>
-                                        </td>
-                                        <td class="count-value">5</td>
-                                        <td class="amount-value">$54.25</td>
+                                    <tr class="activity-category-row">
+                                        <td class="activity-category-name">Charges <span class="activity-count">(60)</span></td>
+                                        <td class="activity-amount"></td>
                                     </tr>
-                                    <tr class="sub-row">
-                                        <td class="sub-label">Count</td>
-                                        <td class="count-value">5</td>
-                                        <td class="amount-value"></td>
+                                    <tr class="activity-detail-row">
+                                        <td class="activity-detail-name">Gross amount</td>
+                                        <td class="activity-detail-amount">300.00</td>
                                     </tr>
-                                    <tr class="sub-row">
-                                        <td class="sub-label">Gross amount</td>
-                                        <td class="count-value"></td>
-                                        <td class="amount-value">$54.25</td>
+                                    <tr class="activity-detail-row">
+                                        <td class="activity-detail-name">Fees</td>
+                                        <td class="activity-detail-amount">-0.75</td>
                                     </tr>
                                     
-                                    <tr class="activity-section">
-                                        <td class="activity-type">
-                                            Refunds 
-                                            <i class="fas fa-info-circle info-icon" data-tooltip="Money returned to customers"></i>
-                                        </td>
-                                        <td class="count-value">7</td>
-                                        <td class="amount-value">-$678.35</td>
+                                    <tr class="activity-category-row">
+                                        <td class="activity-category-name">Charge failures <span class="activity-count">(60)</span></td>
+                                        <td class="activity-amount"></td>
                                     </tr>
-                                    <tr class="sub-row">
-                                        <td class="sub-label">Count</td>
-                                        <td class="count-value">7</td>
-                                        <td class="amount-value"></td>
-                                    </tr>
-                                    <tr class="sub-row">
-                                        <td class="sub-label">Gross amount</td>
-                                        <td class="count-value"></td>
-                                        <td class="amount-value">-$678.35</td>
+                                    <tr class="activity-detail-row">
+                                        <td class="activity-detail-name">Gross amount</td>
+                                        <td class="activity-detail-amount">275.00</td>
                                     </tr>
                                     
-                                    <tr class="activity-section">
-                                        <td class="activity-type">
-                                            Refund failures 
-                                            <i class="fas fa-info-circle info-icon" data-tooltip="Failed refund attempts"></i>
-                                        </td>
-                                        <td class="count-value">15</td>
-                                        <td class="amount-value download-cell">
-                                            <div class="amount-with-download">
-                                                <span>$1,398.39</span>
-                                                <button class="download-mini-btn">
-                                                    <i class="fas fa-download"></i>
-                                                    Download
-                                                </button>
-                                            </div>
-                                        </td>
+                                    <tr class="activity-category-row">
+                                        <td class="activity-category-name">Refunds <span class="activity-count">(60)</span></td>
+                                        <td class="activity-amount"></td>
                                     </tr>
-                                    <tr class="sub-row">
-                                        <td class="sub-label">Count</td>
-                                        <td class="count-value">15</td>
-                                        <td class="amount-value"></td>
-                                    </tr>
-                                    <tr class="sub-row">
-                                        <td class="sub-label">Gross amount</td>
-                                        <td class="count-value"></td>
-                                        <td class="amount-value">$1,398.39</td>
+                                    <tr class="activity-detail-row">
+                                        <td class="activity-detail-name">Gross amount</td>
+                                        <td class="activity-detail-amount">320.00</td>
                                     </tr>
                                     
-                                    <tr class="activity-section">
-                                        <td class="activity-type">
-                                            Network costs 
-                                            <i class="fas fa-info-circle info-icon" data-tooltip="Payment processing network fees"></i>
-                                        </td>
-                                        <td class="count-value">16</td>
-                                        <td class="amount-value">-$0.24</td>
+                                    <tr class="activity-category-row">
+                                        <td class="activity-category-name">Refund failures <span class="activity-count">(60)</span></td>
+                                        <td class="activity-amount"></td>
                                     </tr>
-                                    <tr class="sub-row">
-                                        <td class="sub-label">Count</td>
-                                        <td class="count-value">16</td>
-                                        <td class="amount-value"></td>
-                                    </tr>
-                                    <tr class="sub-row">
-                                        <td class="sub-label">Gross amount</td>
-                                        <td class="count-value"></td>
-                                        <td class="amount-value">-$0.24</td>
+                                    <tr class="activity-detail-row">
+                                        <td class="activity-detail-name">Gross amount</td>
+                                        <td class="activity-detail-amount">290.00</td>
                                     </tr>
                                     
-                                    <tr class="activity-section">
-                                        <td class="activity-type">
-                                            Contributions 
-                                            <i class="fas fa-info-circle info-icon" data-tooltip="Additional contributions to revenue"></i>
-                                        </td>
-                                        <td class="count-value">5</td>
-                                        <td class="amount-value">-$0.54</td>
+                                    <tr class="activity-category-row">
+                                        <td class="activity-category-name">Transfer reversals <span class="activity-count">(60)</span></td>
+                                        <td class="activity-amount"></td>
                                     </tr>
-                                    <tr class="sub-row">
-                                        <td class="sub-label">Count</td>
-                                        <td class="count-value">5</td>
-                                        <td class="amount-value"></td>
-                                    </tr>
-                                    <tr class="sub-row">
-                                        <td class="sub-label">Gross amount</td>
-                                        <td class="count-value"></td>
-                                        <td class="amount-value">-$0.54</td>
+                                    <tr class="activity-detail-row">
+                                        <td class="activity-detail-name">Gross amount</td>
+                                        <td class="activity-detail-amount">310.00</td>
                                     </tr>
                                     
-                                    <tr class="total-row">
-                                        <td class="total-label">Net activity</td>
-                                        <td class="total-count">48</td>
-                                        <td class="total-amount">$773.51</td>
+                                    <tr class="activity-category-row">
+                                        <td class="activity-category-name">Platform earning refunds <span class="activity-count">(60)</span></td>
+                                        <td class="activity-amount"></td>
+                                    </tr>
+                                    <tr class="activity-detail-row">
+                                        <td class="activity-detail-name">Gross amount</td>
+                                        <td class="activity-detail-amount">305.00</td>
+                                    </tr>
+                                    
+                                    <tr class="activity-category-row">
+                                        <td class="activity-category-name">Additional Stripe fees <span class="activity-count">(60)</span></td>
+                                        <td class="activity-amount"></td>
+                                    </tr>
+                                    <tr class="activity-detail-row">
+                                        <td class="activity-detail-name">Gross amount</td>
+                                        <td class="activity-detail-amount">315.00</td>
+                                    </tr>
+                                    <tr class="activity-detail-row">
+                                        <td class="activity-detail-name">Tax</td>
+                                        <td class="activity-detail-amount">280.00</td>
+                                    </tr>
+                                    
+                                    <tr class="activity-category-row">
+                                        <td class="activity-category-name">Network costs <span class="activity-count">(60)</span></td>
+                                        <td class="activity-amount"></td>
+                                    </tr>
+                                    <tr class="activity-detail-row">
+                                        <td class="activity-detail-name">Gross amount</td>
+                                        <td class="activity-detail-amount">330.00</td>
+                                    </tr>
+                                    
+                                    <tr class="activity-category-row">
+                                        <td class="activity-category-name">Contributions <span class="activity-count">(60)</span></td>
+                                        <td class="activity-amount"></td>
+                                    </tr>
+                                    <tr class="activity-detail-row">
+                                        <td class="activity-detail-name">Gross amount</td>
+                                        <td class="activity-detail-amount">295.00</td>
+                                    </tr>
+                                    
+                                    <tr class="activity-category-row">
+                                        <td class="activity-category-name">Other adjustments <span class="activity-count">(60)</span></td>
+                                        <td class="activity-amount"></td>
+                                    </tr>
+                                    <tr class="activity-detail-row">
+                                        <td class="activity-detail-name">Gross amount</td>
+                                        <td class="activity-detail-amount">300.00</td>
+                                    </tr>
+                                    <tr class="activity-spacer-row">
+                                        <td colspan="2"></td>
+                                    </tr>
+                                    
+                                    <tr class="activity-total-row">
+                                        <td class="activity-total-label">Net activity</td>
+                                        <td class="activity-total-amount">$3,005.25</td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
+                    </div>
+                </div>
+
+                <!-- Right Column -->
+                <div class="activity-right">
+                    <h2>About this report</h2>
+                    <p>Provides a breakdown by reporting category for your activity, including all transactions except for payouts. Itemized downloads include attribution dates, related charge IDs, customer IDs, etc.</p>
+                    
+                    <div class="activity-right-actions">
+                        <button class="activity-action-item">
+                            <img src="icon/12x12/askassistant.svg" alt="Ask Assistant" class="activity-action-icon">
+                            Ask Assistant
+                        </button>
+                        <button class="activity-action-item">
+                            <img src="icon/12x12/showtrends.svg" alt="Show trends" class="activity-action-icon">
+                            Show trends
+                        </button>
+                        <button class="activity-action-item">
+                            <img src="icon/12x12/glossary.svg" alt="Glossary" class="activity-action-icon">
+                            Glossary
+                        </button>
+                        <button class="activity-action-item">
+                            <img src="icon/12x12/docs.svg" alt="Docs" class="activity-action-icon">
+                            Docs
+                        </button>
+                        <button class="activity-action-item">
+                            <img src="icon/12x12/sharefeedback.svg" alt="Share feedback" class="activity-action-icon">
+                            Share feedback
+                        </button>
                     </div>
                 </div>
             </div>
