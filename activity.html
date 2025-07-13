@@ -46,32 +46,38 @@
                         <!-- Filters -->
                         <div class="activity-filters-section">
                             <div class="activity-filter-row">
-                                <div class="activity-filter-item">
-                                    <label class="activity-filter-label">Account</label>
-                                    <select class="activity-filter-select">
-                                        <option value="cactus-practice">Cactus practice</option>
-                                    </select>
+                                <!-- Mandatory filters (no remove option) -->
+                                <div class="activity-filter-pill mandatory">
+                                    <span class="filter-label">Account</span>
+                                    <span class="filter-label">|</span>
+                                    <span class="filter-value">Cactus practice</span>
+                                    <i class="fas fa-chevron-down filter-dropdown-icon"></i>
                                 </div>
-                                <div class="activity-filter-item">
-                                    <label class="activity-filter-label">Currency</label>
-                                    <select class="activity-filter-select">
-                                        <option value="usd">USD</option>
-                                    </select>
+                        
+                                <div class="activity-filter-pill mandatory">
+                                    <span class="filter-label">Currency</span>
+                                    <span class="filter-label">|</span>
+                                    <span class="filter-value">USD</span>
+                                    <i class="fas fa-chevron-down filter-dropdown-icon"></i>
                                 </div>
-                                <div class="activity-filter-item">
-                                    <label class="activity-filter-label">Date</label>
-                                    <select class="activity-filter-select">
-                                        <option value="mar-1-31">Mar 1–Mar 31</option>
-                                    </select>
+                                
+                                <div class="activity-filter-pill mandatory">
+                                    <span class="filter-label">Date</span>
+                                    <span class="filter-label">|</span>
+                                    <span class="filter-value">Mar 1–Mar 31</span>
+                                    <i class="fas fa-chevron-down filter-dropdown-icon"></i>
                                 </div>
-                            </div>
-                            <div class="activity-filter-row">
-                                <div class="activity-filter-item">
-                                    <label class="activity-filter-label">Region</label>
-                                    <select class="activity-filter-select">
-                                        <option value="emea">EMEA</option>
-                                    </select>
+                            
+                                <!-- Removable filters (with X icon) -->
+                                <div class="activity-filter-pill removable">
+                                    <i class="fas fa-times filter-remove-icon"></i>
+                                    <span class="filter-label">Region</span>
+                                    <span class="filter-label">|</span>
+                                    <span class="filter-value">EMEA</span>
+                                    <i class="fas fa-chevron-down filter-dropdown-icon"></i>
                                 </div>
+                                
+                                <!-- More filters button -->
                                 <button class="activity-more-filters-btn">
                                     <i class="fas fa-plus"></i>
                                     More filters
